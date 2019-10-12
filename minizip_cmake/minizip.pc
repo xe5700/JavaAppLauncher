@@ -1,0 +1,13 @@
+prefix=C:/Program Files (x86)
+exec_prefix=C:/Program Files (x86)
+libdir=C:/Program Files (x86)/lib
+sharedlibdir=C:/Program Files (x86)/lib
+includedir=C:/Program Files (x86)/include
+
+Name: minizip
+Description: Minizip zip file manipulation library
+Version: 2.9.0
+
+Requires: zlib
+Libs: -L${libdir} -L${sharedlibdir} -lminizip
+Cflags: -I${includedir}

@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "E:/Projects/cpp/JavaAppLauncher/minizip_cmake/CMakeFiles/zlib"
+		},
+		{
+			"file" : "E:/Projects/cpp/JavaAppLauncher/minizip_cmake/CMakeFiles/07470ecb63000f1bb73f08ef7490bd08/zlib.rule"
+		},
+		{
+			"file" : "E:/Projects/cpp/JavaAppLauncher/minizip_cmake/CMakeFiles/307ce1906bbbc91f0b17e7c3200e7184/zlib-complete.rule"
+		},
+		{
+			"file" : "E:/Projects/cpp/JavaAppLauncher/minizip_cmake/CMakeFiles/d149d5ef10b1f6bf33ce5672afe92b53/zlib-install.rule"
+		},
+		{
+			"file" : "E:/Projects/cpp/JavaAppLauncher/minizip_cmake/CMakeFiles/d149d5ef10b1f6bf33ce5672afe92b53/zlib-mkdir.rule"
+		},
+		{
+			"file" : "E:/Projects/cpp/JavaAppLauncher/minizip_cmake/CMakeFiles/d149d5ef10b1f6bf33ce5672afe92b53/zlib-download.rule"
+		},
+		{
+			"file" : "E:/Projects/cpp/JavaAppLauncher/minizip_cmake/CMakeFiles/d149d5ef10b1f6bf33ce5672afe92b53/zlib-update.rule"
+		},
+		{
+			"file" : "E:/Projects/cpp/JavaAppLauncher/minizip_cmake/CMakeFiles/d149d5ef10b1f6bf33ce5672afe92b53/zlib-patch.rule"
+		},
+		{
+			"file" : "E:/Projects/cpp/JavaAppLauncher/minizip_cmake/CMakeFiles/d149d5ef10b1f6bf33ce5672afe92b53/zlib-configure.rule"
+		},
+		{
+			"file" : "E:/Projects/cpp/JavaAppLauncher/minizip_cmake/CMakeFiles/d149d5ef10b1f6bf33ce5672afe92b53/zlib-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"zlib"
+		],
+		"name" : "zlib"
+	}
+}
