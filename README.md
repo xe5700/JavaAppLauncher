@@ -9,7 +9,8 @@
 - 支持老掉牙的XP系统
 
 ## 使用的开源项目
-- MiniZip (Zlib协议)
+- inih (BSD)
+- MiniZip (Zlib)
 - Zlib
 - VC-LTL (EPLv2)
 - YY-Thunks (MIT)
