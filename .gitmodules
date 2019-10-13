@@ -1,0 +1,6 @@
+[submodule "inih"]
+	path = inih
+	url = https://github.com/benhoyt/inih.git
+[submodule "minizip"]
+	path = minizip
+	url = https://github.com/nmoinvaz/minizip.git
