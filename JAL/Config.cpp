@@ -14,7 +14,7 @@ bool Config::force32 = false;
 bool Config::force64 = false;
 bool Config::isJavaw = false;
 bool Config::loadConfig(wchar_t* execPath, bool debug) {
-	INIReader* langinfo;
+	INIReader* langinfo = NULL;
 	byte* zip_header = new byte[4];
 	int ziph_int = 0x04034b50;
 	memcpy(zip_header, &ziph_int, 4);
@@ -45,6 +45,7 @@ bool Config::loadConfig(wchar_t* execPath, bool debug) {
 							const char* fname = addr + strlen(jal_package);
 							if (fname != NULL) {
 								if (strlen(fname) == 7 && strstr(fname, "app.ini") == fname) {
+									MessageBox(NULL, L"TEST", L"TEST", MB_OK);
 									INIReader* inir2 = readIniInZip(handler, file_inf);
 									INIReader inir_ = *inir2;
 									std::string title_ = inir_.Get("App", "title", "Java Launcher");

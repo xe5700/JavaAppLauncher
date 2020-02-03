@@ -5,6 +5,7 @@
 using namespace JAVA_URLS;
 using namespace Config;
 using namespace ConfigUtils;
+using namespace std;
 void debugRet(int ret) {
 	wchar_t tmp[16];
 	_itow(ret, tmp, 10);
@@ -199,7 +200,27 @@ int WinMain2(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nCm
 			return -1;
 		}
 		std::wstring javaHome;
-		if (appjvm == NULL) {
+		if(appjvm!=NULL) {
+			javaHome = appPath;
+			javaHome += appjvm;
+			javaHome += L"\\";
+			auto checkDir = GetFileAttributes(javaHome.c_str());
+			if (checkDir == INVALID_FILE_ATTRIBUTES) {
+				javaHome = TEXT("");
+			} else {
+				wstring jHome=javaHome;
+				if (wow64) {
+					javaHome += L"64";
+				}
+				else {
+					javaHome += L"32";
+				}
+				if (GetFileAttributes(javaHome.c_str()) == INVALID_FILE_ATTRIBUTES) {
+					javaHome = jHome;
+				}
+			}
+		}
+		if (javaHome.empty()) {
 			HKEY key=NULL;
 			long result;
 			WCHAR* jre_key_name;
@@ -339,16 +360,6 @@ int WinMain2(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nCm
 
 			RegCloseKey(jre_ver_key);
 			RegCloseKey(key);
-		}else{
-			javaHome = appPath;
-			javaHome += L"\\";
-			javaHome += appjvm;
-			javaHome += L"\\";
-			if (wow64) {
-				javaHome += L"64";
-			} else {
-				javaHome += L"32";
-			}
 		}
 		//find javaw
 		wchar_t* java_exe = new wchar_t[javaHome.length() + 15];
