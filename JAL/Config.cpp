@@ -45,7 +45,6 @@ bool Config::loadConfig(wchar_t* execPath, bool debug) {
 							const char* fname = addr + strlen(jal_package);
 							if (fname != NULL) {
 								if (strlen(fname) == 7 && strstr(fname, "app.ini") == fname) {
-									MessageBox(NULL, L"TEST", L"TEST", MB_OK);
 									INIReader* inir2 = readIniInZip(handler, file_inf);
 									INIReader inir_ = *inir2;
 									std::string title_ = inir_.Get("App", "title", "Java Launcher");
