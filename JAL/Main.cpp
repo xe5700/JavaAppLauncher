@@ -24,7 +24,7 @@ bool is64bitSys() {
 	}
 	return wow64;
 }
-bool autoSetupJava(wchar_t* title,bool wow64,int jver,wchar_t* execPath) {
+bool autoSetupJava(const wchar_t* title,bool wow64,int jver,const wchar_t* execPath) {
 	wchar_t tmpPath[MAX_PATH];
 	GetTempPath(MAX_PATH,tmpPath);
 	void* zipStream = NULL;
@@ -34,7 +34,7 @@ bool autoSetupJava(wchar_t* title,bool wow64,int jver,wchar_t* execPath) {
 	bool aria = false;
 	wchar_t mpath[MAX_PATH];
 	lstrcpy(mpath, tmpPath);
-	lstrcat(mpath, aria2ExeName);
+	lstrcat(mpath, char2Wchar_t(aria2ExeName.c_str(), CP_UTF8));
 	if (mz_stream_os_create(&zipStream) && mz_zip_create(&handler)) {
 		if ((ret = mz_stream_open(zipStream, exec, MZ_OPEN_MODE_READ)) == MZ_OK) {
 			if (mz_zip_open(handler, zipStream, MZ_OPEN_MODE_READ) == MZ_OK) {
@@ -42,26 +42,24 @@ bool autoSetupJava(wchar_t* title,bool wow64,int jver,wchar_t* execPath) {
 					do {
 						mz_zip_file* file_inf;
 						mz_zip_entry_get_info(handler, &file_inf);
-						const char* addr = strstr(file_inf->filename, jal_package);
-						if (addr != NULL && addr == file_inf->filename) {
-							const char* fname = addr + strlen(jal_package);
-							if (fname != NULL) {
-								if (strlen(fname) == 10 && strstr(fname, "aria2c.exe") == fname) {
-									FILE* ariaF = NULL;
-									if (_wfopen_s(&ariaF, mpath, L"wb") == 0) {
-										char* buf = new char[128];
-										int ret;
-										if ((ret = mz_zip_entry_read_open(handler, 0, NULL)) == MZ_OK) {
-											while ((ret = mz_zip_entry_read(handler, buf, 128)) > 0) {
-												fwrite(buf, 1, ret, ariaF);
-											}
-											mz_zip_entry_close(handler);
+						auto fn = string(file_inf->filename);
+						if (fn.find(jal_package) == 0) {
+							fn = fn.substr(fn.length() - jal_package.length());
+							if (fn.find("aria2c.exe") == 0) {
+								FILE* ariaF = NULL;
+								if (_wfopen_s(&ariaF, mpath, L"wb") == 0) {
+									char* buf = new char[1024];
+									int ret;
+									if ((ret = mz_zip_entry_read_open(handler, 0, NULL)) == MZ_OK) {
+										while ((ret = mz_zip_entry_read(handler, buf, 1024)) > 0) {
+											fwrite(buf, 1, ret, ariaF);
 										}
-										delete buf;
-										fclose(ariaF);
-										aria = true;
-										break;
+										mz_zip_entry_close(handler);
 									}
+									delete buf;
+									fclose(ariaF);
+									aria = true;
+									break;
 								}
 							}
 						}
@@ -145,6 +143,9 @@ bool autoSetupJava(wchar_t* title,bool wow64,int jver,wchar_t* execPath) {
 		shell.nShow = SW_SHOW;
 		shell.lpFile = mpath;
 		shell.hInstApp = NULL;
+		if (GetFileAttributes(mpath) == INVALID_FILE_ATTRIBUTES && GetLastError() == ERROR_FILE_NOT_FOUND) {
+			return false;
+		}
 		ShellExecuteEx(&shell);
 		HWND aria = NULL;
 		while (WaitForSingleObject(shell.hProcess, 0)!= 0xFFFFFFFF && ((aria=FindWindow(L"ConsoleWindowClass", mpath))==NULL)) {
@@ -186,37 +187,43 @@ int WinMain2(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nCm
 		if (!GetVersionEx(&verinf)) {
 			verinf.dwMajorVersion = 5;
 		}
-		wchar_t exePath[MAX_PATH];
+		wchar_t tmppath[MAX_PATH];
+		wstring exePath;
 		wchar_t* lpwCmdLine = char2Wchar_t(lpCmdLine);
 		bool uac = false;
 		INIReader* langini=NULL;
-		GetModuleFileName(NULL, exePath, MAX_PATH);
-		OutputDebugStringW(exePath);
-		wchar_t appPath[MAX_PATH];
-		lstrcpy(appPath, exePath);
-		(wcsrchr(appPath, '\\'))[1] = '\0';
+		GetModuleFileName(NULL, tmppath, MAX_PATH);
+		exePath = tmppath;
+		OutputDebugString(exePath.c_str());
+		wstring appPath;
+		if (!workdir) {
+			appPath += exePath;
+			appPath += L"\\";
+		}
+
 		if (loadConfig(exePath,strstr(lpCmdLine,"debugLoadResourceFuckingMode")==lpCmdLine)!=0) {
 			MessageBox(NULL, L"Wrong configuration", L"Error", MB_OK);
 			return -1;
 		}
-		std::wstring javaHome;
-		if(appjvm!=NULL) {
+		wstring javaHome;
+		if(!appjvm.empty()) {
+			auto appjvm2 = char2Wchar_t(appjvm.c_str(), CP_UTF8);
 			javaHome = appPath;
-			javaHome += appjvm;
+			javaHome += appjvm2;
 			javaHome += L"\\";
 			auto checkDir = GetFileAttributes(javaHome.c_str());
 			if (checkDir == INVALID_FILE_ATTRIBUTES) {
-				javaHome = TEXT("");
-			} else {
-				wstring jHome=javaHome;
+				javaHome = appPath;
+				javaHome += appjvm2;
 				if (wow64) {
 					javaHome += L"64";
 				}
 				else {
 					javaHome += L"32";
 				}
+				javaHome += L"\\";
 				if (GetFileAttributes(javaHome.c_str()) == INVALID_FILE_ATTRIBUTES) {
-					javaHome = jHome;
+					javaHome = L"";
 				}
 			}
 		}
@@ -241,8 +248,9 @@ int WinMain2(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nCm
 				if(!force64)
 				result = RegOpenKeyEx(HKEY_LOCAL_MACHINE, jre_key_name, 0, KEY_WOW64_32KEY | KEY_READ, &key);
 				if (result != ERROR_SUCCESS) {
-					startSetup:
-					int re = MessageBox(NULL, lang->noJava, title, MB_YESNO);
+				startSetup:
+					auto title2 = char2Wchar_t(title.c_str());
+					int re = MessageBox(NULL, lang->noJava, title2, MB_YESNO);
 					RegCloseKey(key);
 					if (re == IDYES) {
 						bool is64 = wow64;
@@ -254,11 +262,11 @@ int WinMain2(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nCm
 							std::wstring bitname = L" ";
 							bitname += lang->win64;
 							wsprintf(Nmsg, lang->notsupportedOS, javaVer,lang->win64);
-							MessageBoxW(NULL, Nmsg, title, MB_OK);
+							MessageBoxW(NULL, Nmsg, title2, MB_OK);
 							delete[] Nmsg;
 							return false;
 						}
-						if (autoSetupJava(title,is64, javaVer,exePath)) {
+						if (autoSetupJava(title2,is64, javaVer, exePath.c_str())) {
 							SHELLEXECUTEINFO shell;
 							shell.cbSize = sizeof(SHELLEXECUTEINFO);
 							shell.fMask = NULL;
@@ -267,11 +275,11 @@ int WinMain2(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nCm
 							shell.lpParameters = lpwCmdLine;
 							shell.lpDirectory = NULL;
 							shell.nShow = SW_SHOW;
-							shell.lpFile = exePath;
+							shell.lpFile = exePath.c_str();
 							shell.hInstApp = NULL;
 							ShellExecuteEx(&shell);
 						} else {
-							MessageBox(NULL, lang->cantDLJava, title, MB_ICONERROR);
+							MessageBox(NULL, lang->cantDLJava, title2, MB_ICONERROR);
 							return -1;
 						}
 					}
@@ -354,7 +362,8 @@ int WinMain2(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nCm
 						goto searchJavaHome;
 					}
 				}
-				javaHome = (wchar_t*)buf;
+				auto buf2 = (wchar_t*)buf;
+				javaHome = buf2;
 				delete[] buf;
 			}
 
@@ -362,37 +371,39 @@ int WinMain2(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nCm
 			RegCloseKey(key);
 		}
 		//find javaw
-		wchar_t* java_exe = new wchar_t[javaHome.length() + 15];
-		lstrcpy(java_exe, javaHome.c_str());
-		lstrcat(java_exe, L"\\bin\\");
+		wstring java_exe;
+		java_exe = javaHome;
+		java_exe += L"\\bin\\";
 		if (isJavaw) {
-			lstrcat(java_exe, L"javaw.exe");
+			java_exe += L"javaw.exe";
 		} else {
-			lstrcat(java_exe, L"java.exe");
+			java_exe += L"java.exe";
 		}
 		SHELLEXECUTEINFO shell;
 		shell.cbSize = sizeof(SHELLEXECUTEINFO);
 		shell.fMask = SEE_MASK_NOCLOSEPROCESS;
 		shell.hwnd = NULL;
 		shell.lpVerb = NULL;
-		wchar_t java_args[MAX_PATH];
+		wstring java_args;
 		java_args[0] = '\0';
-		if (jvmArgs != NULL && jvmArgs[0] != '\0') {
-			lstrcpy(java_args, jvmArgs);
-			lstrcat(java_args, L" ");
+		if (!jvmArgs.empty()) {
+			auto jarg2 = char2Wchar_t(jvmArgs.c_str(), CP_UTF8);
+			java_args = jarg2;
+			java_args += L" ";
+			delete[] jarg2;
 		}
-		lstrcat(java_args, L"-jar \"");
-		lstrcat(java_args, exePath);
-		lstrcat(java_args, L"\"");
+		java_args += L"-jar \"";
+		java_args += exePath;
+		java_args += L"\"";
 		if (lpCmdLine[0] != '\0') {
-			lstrcat(java_args, L" ");
-			lstrcat(java_args, lpwCmdLine);
+			java_args += L" ";
+			java_args += lpwCmdLine;
 			delete lpwCmdLine;
 		}
-		shell.lpParameters = java_args;
-		shell.lpDirectory = appPath;
+		shell.lpParameters = java_args.c_str();
+		shell.lpDirectory = appPath.c_str();
 		shell.nShow = SW_SHOW;
-		shell.lpFile = java_exe;
+		shell.lpFile = java_exe.c_str();
 		shell.hInstApp = NULL;
 		if (uac&&verinf.dwMajorVersion > 5) {
 			shell.lpVerb = L"runas";
@@ -400,19 +411,21 @@ int WinMain2(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nCm
 		ShellExecuteEx(&shell);
 		if (!isJavaw) {
 			HWND javaH=NULL;
-			while (WaitForSingleObject(shell.hProcess, 0) != 0xFFFFFFFF && ((javaH = FindWindow(L"ConsoleWindowClass", java_exe)) == NULL)) {
-
+			while (WaitForSingleObject(shell.hProcess, 0) != 0xFFFFFFFF && ((javaH = FindWindow(L"ConsoleWindowClass", java_exe.c_str())) == NULL)) {
+				Sleep(100);
 			}
 			if (javaH != 0) {
-				SetWindowText(javaH, title);
+				auto title2 = char2Wchar_t(title.c_str(), CP_UTF8);
+				SetWindowText(javaH, title2);
 			}
 		}
-		delete[] java_exe;
+		if (awaitJava) {
+			WaitForSingleObject(shell.hProcess, INFINITE);
+		}
 		return 0;
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
 	int r= WinMain2(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
-	DeleteFileW(aria2ExeName);
 	return r;
 }

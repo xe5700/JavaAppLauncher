@@ -15,3 +15,4 @@
 #include <mz_zip_rw.h>
 //#pragma comment(lib,"zlibstat.lib")
 extern void debugRet(int ret);
+using namespace std;

@@ -5,18 +5,22 @@
 namespace Config {
 	using namespace ConfigUtils;
 	using namespace JAVA_URLS;
-	extern wchar_t* title;
+	extern string title;
 	extern int javaV;
-	extern wchar_t* jvmArgs;
+	extern string jvmArgs;
 	extern bool uac;
-	extern wchar_t* appjvm;
+	extern string appjvm;
+	extern string appjvm64;
 	extern bool debug;
 	extern int javaVer;
-	extern char* jal_package;
-	extern wchar_t* aria2ExeName;
+	extern string jal_package;
+	extern string aria2ExeName;
 
 	extern bool force32;
 	extern bool force64;
 	extern bool isJavaw;
-	bool loadConfig(wchar_t* execPath, bool debug);
+	extern bool awaitJava;
+	extern bool workdir;
+	bool endsWith(string str, char* with);
+	bool loadConfig(wstring execPath, bool debug);
 }
