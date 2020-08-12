@@ -48,7 +48,7 @@ bool Config::loadConfig(wstring execPath, bool debug) {
 						mz_zip_entry_get_info(handler, &file_inf);
 						auto fn = string(file_inf->filename);
 						if (fn.find(jal_package)==0) {
-							fn = fn.substr(fn.length() - jal_package.length());
+							fn = fn.substr(jal_package.length());
 							if (fn == "app.ini") {
 								INIReader* inir2 = readIniInZip(handler, file_inf);
 								INIReader inir_ = *inir2;
@@ -60,6 +60,7 @@ bool Config::loadConfig(wstring execPath, bool debug) {
 								//std::string sAjvm64 = inir_.Get("App", "appJvm64", "");
 								auto forceJvm = inir_.Get("App", "forceJvmBit", "");
 								awaitJava = inir_.GetBoolean("App", "await", false);
+								workdir = inir_.GetBoolean("App", "useWorkdir", false);
 								if (forceJvm == "32") {
 									force32 = true;
 								}
@@ -138,7 +139,7 @@ bool Config::loadConfig(wstring execPath, bool debug) {
 							mz_zip_entry_get_info(handler, &file_inf);
 							auto fn = string(file_inf->filename);
 							if (fn.find(jal_package) == 0) {
-								fn = fn.substr(fn.length() - jal_package.length());
+								fn = fn.substr(jal_package.length());
 								if (fn.find("lang/") == 0) {
 									fn = fn.substr(5);
 									if (fn.find(lang_name) == 0 && endsWith(lang_name, ".ini")) {

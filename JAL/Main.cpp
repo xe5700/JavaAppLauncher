@@ -44,7 +44,7 @@ bool autoSetupJava(const wchar_t* title,bool wow64,int jver,const wchar_t* execP
 						mz_zip_entry_get_info(handler, &file_inf);
 						auto fn = string(file_inf->filename);
 						if (fn.find(jal_package) == 0) {
-							fn = fn.substr(fn.length() - jal_package.length());
+							fn = fn.substr(jal_package.length());
 							if (fn.find("aria2c.exe") == 0) {
 								FILE* ariaF = NULL;
 								if (_wfopen_s(&ariaF, mpath, L"wb") == 0) {
@@ -197,9 +197,11 @@ int WinMain2(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nCm
 		OutputDebugString(exePath.c_str());
 		wstring appPath;
 		if (!workdir) {
-			appPath += exePath;
-			appPath += L"\\";
+			GetCurrentDirectory(MAX_PATH, tmppath);
+		}else{
+			_wgetcwd(tmppath, MAX_PATH);
 		}
+		appPath = tmppath;
 
 		if (loadConfig(exePath,strstr(lpCmdLine,"debugLoadResourceFuckingMode")==lpCmdLine)!=0) {
 			MessageBox(NULL, L"Wrong configuration", L"Error", MB_OK);
@@ -385,7 +387,6 @@ int WinMain2(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nCm
 		shell.hwnd = NULL;
 		shell.lpVerb = NULL;
 		wstring java_args;
-		java_args[0] = '\0';
 		if (!jvmArgs.empty()) {
 			auto jarg2 = char2Wchar_t(jvmArgs.c_str(), CP_UTF8);
 			java_args = jarg2;
