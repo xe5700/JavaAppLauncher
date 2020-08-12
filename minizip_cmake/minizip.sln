@@ -16,9 +16,15 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZERO_CHECK", "ZERO_CHECK.vc
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libzstd_static", "lib\zstd\build\cmake\lib\libzstd_static.vcxproj", "{D0901FFA-738A-3BDF-A851-628B95A5F134}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8A0BA32F-9FD4-332A-9DCC-74F3998D5C17} = {8A0BA32F-9FD4-332A-9DCC-74F3998D5C17}
+	EndProjectSection
+EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "minizip", "minizip.vcxproj", "{A4D1297B-852A-34C8-B68C-D20B3ED22BE3}"
 	ProjectSection(ProjectDependencies) = postProject
 		{8A0BA32F-9FD4-332A-9DCC-74F3998D5C17} = {8A0BA32F-9FD4-332A-9DCC-74F3998D5C17}
+		{D0901FFA-738A-3BDF-A851-628B95A5F134} = {D0901FFA-738A-3BDF-A851-628B95A5F134}
 	EndProjectSection
 EndProject
 Global
@@ -49,6 +55,14 @@ Global
 		{8A0BA32F-9FD4-332A-9DCC-74F3998D5C17}.MinSizeRel|Win32.Build.0 = MinSizeRel|Win32
 		{8A0BA32F-9FD4-332A-9DCC-74F3998D5C17}.RelWithDebInfo|Win32.ActiveCfg = RelWithDebInfo|Win32
 		{8A0BA32F-9FD4-332A-9DCC-74F3998D5C17}.RelWithDebInfo|Win32.Build.0 = RelWithDebInfo|Win32
+		{D0901FFA-738A-3BDF-A851-628B95A5F134}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D0901FFA-738A-3BDF-A851-628B95A5F134}.Debug|Win32.Build.0 = Debug|Win32
+		{D0901FFA-738A-3BDF-A851-628B95A5F134}.Release|Win32.ActiveCfg = Release|Win32
+		{D0901FFA-738A-3BDF-A851-628B95A5F134}.Release|Win32.Build.0 = Release|Win32
+		{D0901FFA-738A-3BDF-A851-628B95A5F134}.MinSizeRel|Win32.ActiveCfg = MinSizeRel|Win32
+		{D0901FFA-738A-3BDF-A851-628B95A5F134}.MinSizeRel|Win32.Build.0 = MinSizeRel|Win32
+		{D0901FFA-738A-3BDF-A851-628B95A5F134}.RelWithDebInfo|Win32.ActiveCfg = RelWithDebInfo|Win32
+		{D0901FFA-738A-3BDF-A851-628B95A5F134}.RelWithDebInfo|Win32.Build.0 = RelWithDebInfo|Win32
 		{A4D1297B-852A-34C8-B68C-D20B3ED22BE3}.Debug|Win32.ActiveCfg = Debug|Win32
 		{A4D1297B-852A-34C8-B68C-D20B3ED22BE3}.Debug|Win32.Build.0 = Debug|Win32
 		{A4D1297B-852A-34C8-B68C-D20B3ED22BE3}.Release|Win32.ActiveCfg = Release|Win32

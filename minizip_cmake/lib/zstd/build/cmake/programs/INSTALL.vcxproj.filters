@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\Projects\cpp\JavaAppLauncher\minizip_cmake\CMakeFiles\30ae37d774dafe06b6769e13717b4257\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{4763A664-9381-37A6-9A7D-4FD6E7177B99}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,17 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.17/Modules/CMakeDetermineSystem.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/CMakeGenericSystem.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/CMakeInitializeConfigs.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/CMakeSystem.cmake.in
+C:/Program Files/CMake/share/cmake-3.17/Modules/CMakeSystemSpecificInformation.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/CMakeSystemSpecificInitialize.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/ExternalProject.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/FindGit.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/Platform/Windows.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/Platform/WindowsPaths.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/RepositoryInfo.txt.in
+E:/Projects/cpp/JavaAppLauncher/minizip_cmake/_deps/zstd-subbuild/CMakeFiles/3.17.2/CMakeSystem.cmake
+E:/Projects/cpp/JavaAppLauncher/minizip_cmake/_deps/zstd-subbuild/CMakeLists.txt
+E:/Projects/cpp/JavaAppLauncher/minizip_cmake/_deps/zstd-subbuild/zstd-populate-prefix/tmp/zstd-populate-cfgcmd.txt.in

@@ -14,6 +14,9 @@
 # EXTERNAL cache entries
 ########################
 
+//activate multi-threaded compilation (/MP flag)
+ACTIVATE_MULTITHREADED_COMPILATION:BOOL=ON
+
 //Path to a file.
 BZIP2_INCLUDE_DIR:PATH=C:/Strawberry/c/include
 
@@ -154,7 +157,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=/INCREMENTAL:NO
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=/debug /INCREMENTAL
 
 //Path to a program.
-CMAKE_MT:FILEPATH=CMAKE_MT-NOTFOUND
+CMAKE_MT:FILEPATH=C:/Program Files (x86)/Windows Kits/10/bin/10.0.18362.0/x64/mt.exe
 
 //Value Computed by CMake
 CMAKE_PROJECT_DESCRIPTION:STATIC=
@@ -164,6 +167,21 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=minizip
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION:STATIC=2.10.0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MAJOR:STATIC=2
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MINOR:STATIC=10
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_PATCH:STATIC=0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_TWEAK:STATIC=
 
 //RC compiler
 CMAKE_RC_COMPILER:FILEPATH=rc
@@ -236,6 +254,26 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=OFF
 
+//Directory under which to collect all populated content
+FETCHCONTENT_BASE_DIR:PATH=E:/Projects/cpp/JavaAppLauncher/minizip_cmake/_deps
+
+//Disables all attempts to download or update content and assumes
+// source dirs already exist
+FETCHCONTENT_FULLY_DISCONNECTED:BOOL=OFF
+
+//Enables QUIET option for all content population
+FETCHCONTENT_QUIET:BOOL=ON
+
+//When not empty, overrides where to find pre-populated content
+// for zstd
+FETCHCONTENT_SOURCE_DIR_ZSTD:PATH=
+
+//Enables UPDATE_DISCONNECTED behavior for all content population
+FETCHCONTENT_UPDATES_DISCONNECTED:BOOL=OFF
+
+//Enables UPDATE_DISCONNECTED behavior just for population of zstd
+FETCHCONTENT_UPDATES_DISCONNECTED_ZSTD:BOOL=OFF
+
 //Git command line client
 GIT_EXECUTABLE:FILEPATH=C:/Program Files/Git/cmd/git.exe
 
@@ -272,6 +310,9 @@ MZ_BUILD_UNIT_TEST:BOOL=OFF
 //Enables BZIP2 compression
 MZ_BZIP2:BOOL=OFF
 
+//Builds with code coverage flags
+MZ_CODE_COVERAGE:BOOL=OFF
+
 //Enables compatibility layer
 MZ_COMPAT:BOOL=ON
 
@@ -280,6 +321,12 @@ MZ_COMPRESS_ONLY:BOOL=OFF
 
 //Only support decompression
 MZ_DECOMPRESS_ONLY:BOOL=OFF
+
+//Builds using posix 32-bit file api
+MZ_FILE32_API:BOOL=OFF
+
+//Enable libbsd crypto random
+MZ_LIBBSD:BOOL=ON
 
 //Enables Apple compression
 MZ_LIBCOMP:BOOL=OFF
@@ -293,6 +340,9 @@ MZ_OPENSSL:BOOL=OFF
 //Enables PKWARE traditional encryption
 MZ_PKCRYPT:BOOL=ON
 
+//Project name suffix for package managers
+MZ_PROJECT_SUFFIX:STRING=
+
 //Enables zip signing support
 MZ_SIGNING:BOOL=ON
 
@@ -301,6 +351,12 @@ MZ_WZAES:BOOL=ON
 
 //Enables ZLIB compression
 MZ_ZLIB:BOOL=ON
+
+//Enables ZSTD compression
+MZ_ZSTD:BOOL=ON
+
+//Skips find package for ZLIB
+ZLIB_FORCE_FETCH:BOOL=OFF
 
 //Path to a file.
 ZLIB_INCLUDE_DIR:PATH=C:/Strawberry/c/include
@@ -313,14 +369,74 @@ ZLIB_LIBRARY_DEBUG:FILEPATH=ZLIB_LIBRARY_DEBUG-NOTFOUND
 //Path to a library.
 ZLIB_LIBRARY_RELEASE:FILEPATH=ZLIB_LIBRARY_RELEASE-NOTFOUND
 
+//BUILD CONTRIB
+ZSTD_BUILD_CONTRIB:BOOL=OFF
+
+//BUILD PROGRAMS
+ZSTD_BUILD_PROGRAMS:BOOL=ON
+
+//BUILD SHARED LIBRARIES
+ZSTD_BUILD_SHARED:BOOL=ON
+
+//BUILD STATIC LIBRARIES
+ZSTD_BUILD_STATIC:BOOL=ON
+
+//BUILD TESTS
+ZSTD_BUILD_TESTS:BOOL=OFF
+
+//The directory containing a CMake configuration file for ZSTD.
+ZSTD_DIR:PATH=ZSTD_DIR-NOTFOUND
+
+//Skips find package for ZSTD
+ZSTD_FORCE_FETCH:BOOL=OFF
+
+//LEGACY SUPPORT
+ZSTD_LEGACY_SUPPORT:BOOL=OFF
+
+//LZ4 SUPPORT
+ZSTD_LZ4_SUPPORT:BOOL=OFF
+
+//LZMA SUPPORT
+ZSTD_LZMA_SUPPORT:BOOL=OFF
+
+//MULTITHREADING SUPPORT
+ZSTD_MULTITHREAD_SUPPORT:BOOL=ON
+
+//PROGRAMS LINK SHARED
+ZSTD_PROGRAMS_LINK_SHARED:BOOL=OFF
+
+//LINK TO STATIC RUN-TIME LIBRARIES
+ZSTD_USE_STATIC_RUNTIME:BOOL=OFF
+
+//ZLIB SUPPORT
+ZSTD_ZLIB_SUPPORT:BOOL=OFF
+
+//Value Computed by CMake
+libzstd_BINARY_DIR:STATIC=E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/lib
+
+//Value Computed by CMake
+libzstd_SOURCE_DIR:STATIC=E:/Projects/cpp/JavaAppLauncher/minizip/lib/zstd/build/cmake/lib
+
 //Value Computed by CMake
 minizip_BINARY_DIR:STATIC=E:/Projects/cpp/JavaAppLauncher/minizip_cmake
 
 //Dependencies for the target
-minizip_LIB_DEPENDS:STATIC=general;../zlib;
+minizip_LIB_DEPENDS:STATIC=general;../zlib;general;libzstd_static;
 
 //Value Computed by CMake
 minizip_SOURCE_DIR:STATIC=E:/Projects/cpp/JavaAppLauncher/minizip
+
+//Value Computed by CMake
+programs_BINARY_DIR:STATIC=E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/programs
+
+//Value Computed by CMake
+programs_SOURCE_DIR:STATIC=E:/Projects/cpp/JavaAppLauncher/minizip/lib/zstd/build/cmake/programs
+
+//Value Computed by CMake
+zstd_BINARY_DIR:STATIC=E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake
+
+//Value Computed by CMake
+zstd_SOURCE_DIR:STATIC=E:/Projects/cpp/JavaAppLauncher/minizip/lib/zstd/build/cmake
 
 
 ########################
@@ -338,9 +454,9 @@ CMAKE_CACHEFILE_DIR:INTERNAL=e:/Projects/cpp/JavaAppLauncher/minizip_cmake
 //Major version of cmake used to create the current loaded cache
 CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 //Minor version of cmake used to create the current loaded cache
-CMAKE_CACHE_MINOR_VERSION:INTERNAL=16
+CMAKE_CACHE_MINOR_VERSION:INTERNAL=17
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=0
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=2
 //Path to CMake executable.
 CMAKE_COMMAND:INTERNAL=C:/Program Files/CMake/bin/cmake.exe
 //Path to cpack program executable.
@@ -443,7 +559,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MT
 CMAKE_MT-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
 //Platform information initialized
 CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_RC_COMPILER
@@ -460,7 +576,7 @@ CMAKE_RC_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_RC_FLAGS_RELWITHDEBINFO
 CMAKE_RC_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //Path to CMake installation.
-CMAKE_ROOT:INTERNAL=C:/Program Files/CMake/share/cmake-3.16
+CMAKE_ROOT:INTERNAL=C:/Program Files/CMake/share/cmake-3.17
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS
 CMAKE_SHARED_LINKER_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_DEBUG
@@ -487,6 +603,18 @@ CMAKE_STATIC_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Test CXX_FLAG_DUNICODE
+CXX_FLAG_DUNICODE:INTERNAL=1
+//Test CXX_FLAG_D_UNICODE
+CXX_FLAG_D_UNICODE:INTERNAL=1
+//Test CXX_FLAG_MP
+CXX_FLAG_MP:INTERNAL=1
+//Test C_FLAG_DUNICODE
+C_FLAG_DUNICODE:INTERNAL=1
+//Test C_FLAG_D_UNICODE
+C_FLAG_D_UNICODE:INTERNAL=1
+//Test C_FLAG_MP
+C_FLAG_MP:INTERNAL=1
 //Details about finding ZLIB
 FIND_PACKAGE_MESSAGE_DETAILS_ZLIB:INTERNAL=[../zlib][C:/Strawberry/c/include][v1.2.11()]
 //ADVANCED property for variable: GIT_EXECUTABLE
@@ -515,14 +643,22 @@ HAVE_STRINGS_H:INTERNAL=
 HAVE_STRING_H:INTERNAL=1
 //Have include sys/types.h
 HAVE_SYS_TYPES_H:INTERNAL=1
+//ADVANCED property for variable: MZ_FILE32_API
+MZ_FILE32_API-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MZ_PROJECT_SUFFIX
+MZ_PROJECT_SUFFIX-ADVANCED:INTERNAL=1
 //CHECK_TYPE_SIZE: off64_t unknown
 OFF64_T:INTERNAL=
+//ADVANCED property for variable: ZLIB_FORCE_FETCH
+ZLIB_FORCE_FETCH-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ZLIB_INCLUDE_DIR
 ZLIB_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ZLIB_LIBRARY_DEBUG
 ZLIB_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ZLIB_LIBRARY_RELEASE
 ZLIB_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ZSTD_FORCE_FETCH
+ZSTD_FORCE_FETCH-ADVANCED:INTERNAL=1
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)
 

@@ -2,3 +2,14 @@ E:/Projects/cpp/JavaAppLauncher/minizip_cmake/CMakeFiles/minizip.dir
 E:/Projects/cpp/JavaAppLauncher/minizip_cmake/CMakeFiles/INSTALL.dir
 E:/Projects/cpp/JavaAppLauncher/minizip_cmake/CMakeFiles/ALL_BUILD.dir
 E:/Projects/cpp/JavaAppLauncher/minizip_cmake/CMakeFiles/ZERO_CHECK.dir
+E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/CMakeFiles/INSTALL.dir
+E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/CMakeFiles/clean-all.dir
+E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/CMakeFiles/ALL_BUILD.dir
+E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/lib/CMakeFiles/uninstall.dir
+E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/lib/CMakeFiles/libzstd_shared.dir
+E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/lib/CMakeFiles/libzstd_static.dir
+E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/lib/CMakeFiles/INSTALL.dir
+E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/lib/CMakeFiles/ALL_BUILD.dir
+E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/programs/CMakeFiles/zstd.dir
+E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/programs/CMakeFiles/INSTALL.dir
+E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/programs/CMakeFiles/ALL_BUILD.dir

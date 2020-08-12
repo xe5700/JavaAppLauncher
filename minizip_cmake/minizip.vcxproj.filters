@@ -46,6 +46,9 @@
     <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\mz_strm_zlib.c">
       <Filter>Minizip</Filter>
     </ClCompile>
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\mz_strm_zstd.c">
+      <Filter>Minizip</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\mz.h">
@@ -94,6 +97,9 @@
       <Filter>Minizip</Filter>
     </ClInclude>
     <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\mz_strm_zlib.h">
+      <Filter>Minizip</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\mz_strm_zstd.h">
       <Filter>Minizip</Filter>
     </ClInclude>
   </ItemGroup>

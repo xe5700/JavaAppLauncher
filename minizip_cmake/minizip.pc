@@ -6,8 +6,9 @@ includedir=C:/Program Files (x86)/include
 
 Name: minizip
 Description: Minizip zip file manipulation library
-Version: 2.9.0
+Version: 2.10.0
 
 Requires: zlib
 Libs: -L${libdir} -L${sharedlibdir} -lminizip
+Libs.private: -lz
 Cflags: -I${includedir}

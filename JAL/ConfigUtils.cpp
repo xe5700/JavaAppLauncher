@@ -22,7 +22,7 @@ INIReader* ConfigUtils::readIniInZip(void* handler, mz_zip_file* file_inf) {
 	size_t total = 0;
 	int ret;
 	if ((ret = mz_zip_entry_read_open(handler, 0, NULL)) == MZ_OK) {	
-		while ((ret = mz_zip_entry_read(handler, buf, 128)) > 0) {
+		while ((ret = mz_zip_entry_read(handler, buf, 1024)) > 0) {
 			memcpy(mfile + total, buf, ret);
 			total += ret;
 		}

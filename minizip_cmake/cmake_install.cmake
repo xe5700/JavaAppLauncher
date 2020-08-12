@@ -35,44 +35,44 @@ endif()
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
     list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-     "C:/Program Files (x86)/lib/minizip.lib")
+     "C:/Program Files (x86)/lib/libminizip.lib")
     if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
         message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
     endif()
     if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
         message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
     endif()
-file(INSTALL DESTINATION "C:/Program Files (x86)/lib" TYPE STATIC_LIBRARY FILES "E:/Projects/cpp/JavaAppLauncher/minizip_cmake/Debug/minizip.lib")
+file(INSTALL DESTINATION "C:/Program Files (x86)/lib" TYPE STATIC_LIBRARY FILES "E:/Projects/cpp/JavaAppLauncher/minizip_cmake/Debug/libminizip.lib")
   elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
     list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-     "C:/Program Files (x86)/lib/minizip.lib")
+     "C:/Program Files (x86)/lib/libminizip.lib")
     if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
         message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
     endif()
     if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
         message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
     endif()
-file(INSTALL DESTINATION "C:/Program Files (x86)/lib" TYPE STATIC_LIBRARY FILES "E:/Projects/cpp/JavaAppLauncher/minizip_cmake/Release/minizip.lib")
+file(INSTALL DESTINATION "C:/Program Files (x86)/lib" TYPE STATIC_LIBRARY FILES "E:/Projects/cpp/JavaAppLauncher/minizip_cmake/Release/libminizip.lib")
   elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Mm][Ii][Nn][Ss][Ii][Zz][Ee][Rr][Ee][Ll])$")
     list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-     "C:/Program Files (x86)/lib/minizip.lib")
+     "C:/Program Files (x86)/lib/libminizip.lib")
     if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
         message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
     endif()
     if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
         message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
     endif()
-file(INSTALL DESTINATION "C:/Program Files (x86)/lib" TYPE STATIC_LIBRARY FILES "E:/Projects/cpp/JavaAppLauncher/minizip_cmake/MinSizeRel/minizip.lib")
+file(INSTALL DESTINATION "C:/Program Files (x86)/lib" TYPE STATIC_LIBRARY FILES "E:/Projects/cpp/JavaAppLauncher/minizip_cmake/MinSizeRel/libminizip.lib")
   elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ww][Ii][Tt][Hh][Dd][Ee][Bb][Ii][Nn][Ff][Oo])$")
     list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-     "C:/Program Files (x86)/lib/minizip.lib")
+     "C:/Program Files (x86)/lib/libminizip.lib")
     if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
         message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
     endif()
     if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
         message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
     endif()
-file(INSTALL DESTINATION "C:/Program Files (x86)/lib" TYPE STATIC_LIBRARY FILES "E:/Projects/cpp/JavaAppLauncher/minizip_cmake/RelWithDebInfo/minizip.lib")
+file(INSTALL DESTINATION "C:/Program Files (x86)/lib" TYPE STATIC_LIBRARY FILES "E:/Projects/cpp/JavaAppLauncher/minizip_cmake/RelWithDebInfo/libminizip.lib")
   endif()
 endif()
 
@@ -146,7 +146,22 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "C:/Program Files (x86)/include/mz.h;C:/Program Files (x86)/include/mz_os.h;C:/Program Files (x86)/include/mz_crypt.h;C:/Program Files (x86)/include/mz_strm.h;C:/Program Files (x86)/include/mz_strm_buf.h;C:/Program Files (x86)/include/mz_strm_mem.h;C:/Program Files (x86)/include/mz_strm_split.h;C:/Program Files (x86)/include/mz_strm_os.h;C:/Program Files (x86)/include/mz_zip.h;C:/Program Files (x86)/include/mz_zip_rw.h;C:/Program Files (x86)/include/mz_compat.h;C:/Program Files (x86)/include/zip.h;C:/Program Files (x86)/include/unzip.h;C:/Program Files (x86)/include/mz_strm_pkcrypt.h;C:/Program Files (x86)/include/mz_strm_wzaes.h;C:/Program Files (x86)/include/mz_strm_zlib.h")
+   "C:/Program Files (x86)/lib/cmake/minizip/minizipConfigVersion.cmake;C:/Program Files (x86)/lib/cmake/minizip/minizipConfig.cmake")
+  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+file(INSTALL DESTINATION "C:/Program Files (x86)/lib/cmake/minizip" TYPE FILE FILES
+    "E:/Projects/cpp/JavaAppLauncher/minizip_cmake/minizipConfigVersion.cmake"
+    "E:/Projects/cpp/JavaAppLauncher/minizip_cmake/minizipConfig.cmake"
+    )
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
+   "C:/Program Files (x86)/include/mz.h;C:/Program Files (x86)/include/mz_os.h;C:/Program Files (x86)/include/mz_crypt.h;C:/Program Files (x86)/include/mz_strm.h;C:/Program Files (x86)/include/mz_strm_buf.h;C:/Program Files (x86)/include/mz_strm_mem.h;C:/Program Files (x86)/include/mz_strm_split.h;C:/Program Files (x86)/include/mz_strm_os.h;C:/Program Files (x86)/include/mz_zip.h;C:/Program Files (x86)/include/mz_zip_rw.h;C:/Program Files (x86)/include/mz_compat.h;C:/Program Files (x86)/include/zip.h;C:/Program Files (x86)/include/unzip.h;C:/Program Files (x86)/include/mz_strm_pkcrypt.h;C:/Program Files (x86)/include/mz_strm_wzaes.h;C:/Program Files (x86)/include/mz_strm_zlib.h;C:/Program Files (x86)/include/mz_strm_zstd.h")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
@@ -170,6 +185,7 @@ file(INSTALL DESTINATION "C:/Program Files (x86)/include" TYPE FILE FILES
     "E:/Projects/cpp/JavaAppLauncher/minizip/mz_strm_pkcrypt.h"
     "E:/Projects/cpp/JavaAppLauncher/minizip/mz_strm_wzaes.h"
     "E:/Projects/cpp/JavaAppLauncher/minizip/mz_strm_zlib.h"
+    "E:/Projects/cpp/JavaAppLauncher/minizip/mz_strm_zstd.h"
     )
 endif()
 
@@ -183,6 +199,11 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
 file(INSTALL DESTINATION "C:/Program Files (x86)/lib/pkgconfig" TYPE FILE FILES "E:/Projects/cpp/JavaAppLauncher/minizip_cmake/minizip.pc")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for each subdirectory.
+
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

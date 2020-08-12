@@ -1,0 +1,3 @@
+E:/Projects/cpp/JavaAppLauncher/minizip_cmake/_deps/zstd-subbuild/CMakeFiles/zstd-populate.dir
+E:/Projects/cpp/JavaAppLauncher/minizip_cmake/_deps/zstd-subbuild/CMakeFiles/ALL_BUILD.dir
+E:/Projects/cpp/JavaAppLauncher/minizip_cmake/_deps/zstd-subbuild/CMakeFiles/ZERO_CHECK.dir

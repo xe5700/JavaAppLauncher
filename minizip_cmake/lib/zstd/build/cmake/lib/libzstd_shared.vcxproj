@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1D3AED2B-36E4-3F7A-A7F7-D95B6687E441}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>libzstd_shared</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Projects\cpp\JavaAppLauncher\minizip_cmake\lib\zstd\build\cmake\lib\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">libzstd_shared.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">zstd</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Projects\cpp\JavaAppLauncher\minizip_cmake\lib\zstd\build\cmake\lib\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">libzstd_shared.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">zstd</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Projects\cpp\JavaAppLauncher\minizip_cmake\lib\zstd\build\cmake\lib\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">libzstd_shared.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">zstd</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Projects\cpp\JavaAppLauncher\minizip_cmake\lib\zstd\build\cmake\lib\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">libzstd_shared.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">zstd</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\Projects\cpp\JavaAppLauncher\minizip_cmake\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_UNICODE;UNICODE;ZSTD_MULTITHREAD;ZSTD_DLL_EXPORT=1;ZSTD_HEAPMODE=0;_CONSOLE;_CRT_SECURE_NO_WARNINGS;XXH_NAMESPACE=ZSTD_;ZSTD_LEGACY_SUPPORT=0;CMAKE_INTDIR="Debug";libzstd_shared_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_UNICODE;UNICODE;ZSTD_MULTITHREAD;ZSTD_DLL_EXPORT=1;ZSTD_HEAPMODE=0;_CONSOLE;_CRT_SECURE_NO_WARNINGS;XXH_NAMESPACE=ZSTD_;ZSTD_LEGACY_SUPPORT=0;CMAKE_INTDIR=\"Debug\";libzstd_shared_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Projects\cpp\JavaAppLauncher\minizip_cmake\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\Projects\cpp\JavaAppLauncher\minizip_cmake\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/lib/Debug/zstd.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/lib/Debug/zstd.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\Projects\cpp\JavaAppLauncher\minizip_cmake\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_UNICODE;UNICODE;NDEBUG;ZSTD_MULTITHREAD;ZSTD_DLL_EXPORT=1;ZSTD_HEAPMODE=0;_CONSOLE;_CRT_SECURE_NO_WARNINGS;XXH_NAMESPACE=ZSTD_;ZSTD_LEGACY_SUPPORT=0;CMAKE_INTDIR="Release";libzstd_shared_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_UNICODE;UNICODE;NDEBUG;ZSTD_MULTITHREAD;ZSTD_DLL_EXPORT=1;ZSTD_HEAPMODE=0;_CONSOLE;_CRT_SECURE_NO_WARNINGS;XXH_NAMESPACE=ZSTD_;ZSTD_LEGACY_SUPPORT=0;CMAKE_INTDIR=\"Release\";libzstd_shared_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Projects\cpp\JavaAppLauncher\minizip_cmake\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\Projects\cpp\JavaAppLauncher\minizip_cmake\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/lib/Release/zstd.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/lib/Release/zstd.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\Projects\cpp\JavaAppLauncher\minizip_cmake\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_UNICODE;UNICODE;NDEBUG;ZSTD_MULTITHREAD;ZSTD_DLL_EXPORT=1;ZSTD_HEAPMODE=0;_CONSOLE;_CRT_SECURE_NO_WARNINGS;XXH_NAMESPACE=ZSTD_;ZSTD_LEGACY_SUPPORT=0;CMAKE_INTDIR="MinSizeRel";libzstd_shared_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_UNICODE;UNICODE;NDEBUG;ZSTD_MULTITHREAD;ZSTD_DLL_EXPORT=1;ZSTD_HEAPMODE=0;_CONSOLE;_CRT_SECURE_NO_WARNINGS;XXH_NAMESPACE=ZSTD_;ZSTD_LEGACY_SUPPORT=0;CMAKE_INTDIR=\"MinSizeRel\";libzstd_shared_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Projects\cpp\JavaAppLauncher\minizip_cmake\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\Projects\cpp\JavaAppLauncher\minizip_cmake\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/lib/MinSizeRel/zstd.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/lib/MinSizeRel/zstd.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\Projects\cpp\JavaAppLauncher\minizip_cmake\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_UNICODE;UNICODE;NDEBUG;ZSTD_MULTITHREAD;ZSTD_DLL_EXPORT=1;ZSTD_HEAPMODE=0;_CONSOLE;_CRT_SECURE_NO_WARNINGS;XXH_NAMESPACE=ZSTD_;ZSTD_LEGACY_SUPPORT=0;CMAKE_INTDIR="RelWithDebInfo";libzstd_shared_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_UNICODE;UNICODE;NDEBUG;ZSTD_MULTITHREAD;ZSTD_DLL_EXPORT=1;ZSTD_HEAPMODE=0;_CONSOLE;_CRT_SECURE_NO_WARNINGS;XXH_NAMESPACE=ZSTD_;ZSTD_LEGACY_SUPPORT=0;CMAKE_INTDIR=\"RelWithDebInfo\";libzstd_shared_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Projects\cpp\JavaAppLauncher\minizip_cmake\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\Projects\cpp\JavaAppLauncher\minizip_cmake\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib;E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\..\..\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/lib/RelWithDebInfo/zstd.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/lib/RelWithDebInfo/zstd.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\lib\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule E:/Projects/cpp/JavaAppLauncher/minizip/lib/zstd/build/cmake/lib/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/Projects/cpp/JavaAppLauncher/minizip -BE:/Projects/cpp/JavaAppLauncher/minizip_cmake --check-stamp-file E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/lib/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\lib\cmake_uninstall.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Projects\cpp\JavaAppLauncher\minizip_cmake\lib\zstd\build\cmake\lib\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule E:/Projects/cpp/JavaAppLauncher/minizip/lib/zstd/build/cmake/lib/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/Projects/cpp/JavaAppLauncher/minizip -BE:/Projects/cpp/JavaAppLauncher/minizip_cmake --check-stamp-file E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/lib/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\lib\cmake_uninstall.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Projects\cpp\JavaAppLauncher\minizip_cmake\lib\zstd\build\cmake\lib\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule E:/Projects/cpp/JavaAppLauncher/minizip/lib/zstd/build/cmake/lib/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/Projects/cpp/JavaAppLauncher/minizip -BE:/Projects/cpp/JavaAppLauncher/minizip_cmake --check-stamp-file E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/lib/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\lib\cmake_uninstall.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\Projects\cpp\JavaAppLauncher\minizip_cmake\lib\zstd\build\cmake\lib\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule E:/Projects/cpp/JavaAppLauncher/minizip/lib/zstd/build/cmake/lib/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/Projects/cpp/JavaAppLauncher/minizip -BE:/Projects/cpp/JavaAppLauncher/minizip_cmake --check-stamp-file E:/Projects/cpp/JavaAppLauncher/minizip_cmake/lib/zstd/build/cmake/lib/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\cmake\lib\cmake_uninstall.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\Projects\cpp\JavaAppLauncher\minizip_cmake\lib\zstd\build\cmake\lib\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\common\debug.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\common\entropy_common.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\common\error_private.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\common\fse_decompress.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\common\pool.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\common\threading.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\common\xxhash.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\common\zstd_common.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\fse_compress.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\hist.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\huf_compress.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\zstd_compress.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\zstd_compress_literals.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\zstd_compress_sequences.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\zstd_compress_superblock.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\zstd_double_fast.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\zstd_fast.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\zstd_lazy.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\zstd_ldm.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\zstd_opt.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\zstdmt_compress.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\decompress\huf_decompress.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\decompress\zstd_ddict.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\decompress\zstd_decompress.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\decompress\zstd_decompress_block.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\dictBuilder\cover.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\dictBuilder\divsufsort.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\dictBuilder\fastcover.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\dictBuilder\zdict.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\deprecated\zbuff_common.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\deprecated\zbuff_compress.c" />
+    <ClCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\deprecated\zbuff_decompress.c" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\zstd.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\common\bitstream.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\common\compiler.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\common\cpu.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\common\debug.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\common\error_private.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\common\fse.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\common\huf.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\common\mem.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\common\pool.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\common\threading.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\common\xxhash.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\common\zstd_errors.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\common\zstd_internal.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\hist.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\zstd_compress_internal.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\zstd_compress_literals.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\zstd_compress_sequences.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\zstd_compress_superblock.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\zstd_cwksp.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\zstd_double_fast.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\zstd_fast.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\zstd_lazy.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\zstd_ldm.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\zstd_opt.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\compress\zstdmt_compress.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\decompress\zstd_ddict.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\decompress\zstd_decompress_block.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\decompress\zstd_decompress_internal.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\dictBuilder\cover.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\dictBuilder\divsufsort.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\dictBuilder\zdict.h" />
+    <ClInclude Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\lib\deprecated\zbuff.h" />
+    <ResourceCompile Include="E:\Projects\cpp\JavaAppLauncher\minizip\lib\zstd\build\VS2010\libzstd-dll\libzstd-dll.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="E:\Projects\cpp\JavaAppLauncher\minizip_cmake\ZERO_CHECK.vcxproj">
+      <Project>{8A0BA32F-9FD4-332A-9DCC-74F3998D5C17}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
