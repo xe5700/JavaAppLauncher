@@ -156,6 +156,18 @@ if(${SupportLTL} STREQUAL "true")
 
 			#VC 2015只能自己读取注册表解决
 
+			#计算机已经安装Visual Studio 2015 Update3 v14.0.24245 Visual C++ CRT Headers Package（Visual Studio 2019 中的2015平台工具集），与14.0.24231差别几乎为0，就不更新了
+			if(NOT VCLTLToolsVersion)
+				GET_FILENAME_COMPONENT(LTLDisplayVersionTmp "[HKEY_LOCAL_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{F485D86A-9520-3127-B879-861A9315C734};DisplayVersion]" NAME)
+				if (${LTLDisplayVersionTmp} STREQUAL "registry")
+					GET_FILENAME_COMPONENT(LTLDisplayVersionTmp "[HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{F485D86A-9520-3127-B879-861A9315C734};DisplayVersion]" NAME)
+				endif()
+
+				if (NOT ${LTLDisplayVersionTmp} STREQUAL "registry")
+					set(VCLTLToolsVersion "14.0.24231")
+				endif()
+			endif()
+
 			#计算机已经安装Visual Studio 2015 Update3 v14.0.24234（Visual Studio 2017 15.7中的2015平台工具集），与14.0.24231完全一致
 			if(NOT VCLTLToolsVersion)
 				GET_FILENAME_COMPONENT(LTLDisplayVersionTmp "[HKEY_LOCAL_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{BDE574B5-6CFE-32B2-9854-C827567E9D6F};DisplayVersion]" NAME)
@@ -211,8 +223,8 @@ if(${SupportLTL} STREQUAL "true")
 				set(VCLTLToolsVersion $ENV{VCToolsVersion})
 			endif()
 		elseif(${VCLTLVisualStudioVersionTmp} STREQUAL "16.0")
-			#VC2017
-			set(DefaultVCLTLToolsVersion "14.22.27905")
+			#VC2019
+			set(DefaultVCLTLToolsVersion "14.26.28801")
 
 			if(DEFINED ENV{VCToolsVersion})
 				set(VCLTLToolsVersion $ENV{VCToolsVersion})
@@ -301,7 +313,7 @@ if(${SupportLTL} STREQUAL "true")
 	message(" Using VC-LTL " ${VCLTLPlatformName} " " ${LTL_Mode} " Mode")
 	message("")
 
-    set(VC_LTL_Include ${VC_LTL_Root}/config/${VCLTLPlatformName};${VC_LTL_Root}/VC/${VCLTLToolsVersion}/include;${VC_LTL_Root}/VC/${VCLTLToolsVersion}/atlmfc/include;${VC_LTL_Root}/ucrt/${VCLTLTargetUniversalCRTVersion})
+    set(VC_LTL_Include ${VC_LTL_Root}/config/Mode/${LTL_Mode};${VC_LTL_Root}/config/${VCLTLPlatformName};${VC_LTL_Root}/VC/${VCLTLToolsVersion}/include;${VC_LTL_Root}/VC/${VCLTLToolsVersion}/atlmfc/include;${VC_LTL_Root}/ucrt/${VCLTLTargetUniversalCRTVersion})
     set(VC_LTL_Library ${VC_LTL_Root}/lib/${PlatformShortName}/${VCLTLPlatformName};${VC_LTL_Root}/lib/${PlatformShortName}/${VCLTLPlatformName}/${LTL_Mode};${VC_LTL_Root}/VC/${VCLTLToolsVersion}/lib/${PlatformShortName};${VC_LTL_Root}/VC/${VCLTLToolsVersion}/lib/${PlatformShortName}/${VCLTLPlatformName};${VC_LTL_Root}/ucrt/${VCLTLTargetUniversalCRTVersion}/lib/${PlatformShortName})
 
 	#message("INCLUDE " $ENV{INCLUDE})

@@ -48,10 +48,10 @@ bool autoSetupJava(const wchar_t* title,bool wow64,int jver,const wchar_t* execP
 							if (fn.find("aria2c.exe") == 0) {
 								FILE* ariaF = NULL;
 								if (_wfopen_s(&ariaF, mpath, L"wb") == 0) {
-									char* buf = new char[1024];
+									char* buf = new char[128];
 									int ret;
 									if ((ret = mz_zip_entry_read_open(handler, 0, NULL)) == MZ_OK) {
-										while ((ret = mz_zip_entry_read(handler, buf, 1024)) > 0) {
+										while ((ret = mz_zip_entry_read(handler, buf, 128)) > 0) {
 											fwrite(buf, 1, ret, ariaF);
 										}
 										mz_zip_entry_close(handler);

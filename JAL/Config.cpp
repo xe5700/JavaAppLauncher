@@ -29,7 +29,7 @@ bool Config::loadConfig(wstring execPath, bool debug) {
 	void* handler = NULL;
 	bool ret = false;
 	bool done = false;
-	char* execP = wchar_t2Char(execPath.c_str());
+	char* execP = wchar_t2Char(execPath.c_str(), CP_UTF8);
 	if (mz_stream_os_create(&zipStream) && mz_zip_create(&handler)) {
 		int ret;
 		int index_ = 0;

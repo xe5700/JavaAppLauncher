@@ -4,7 +4,8 @@
 
 SUPPORTED_PLATFORM_LIST = x86 x64 arm arm64
 
-VC_TOOLS_VERSION_LIST = 14.0.24231:BDE574B5-6CFE-32B2-9854-C827567E9D6F \
+VC_TOOLS_VERSION_LIST = 14.0.24231:F485D86A-9520-3127-B879-861A9315C734 \
+                        14.0.24231:BDE574B5-6CFE-32B2-9854-C827567E9D6F \
                         14.0.24231:B0791F3A-6A88-3650-AECF-8AFBE227EC53 \
                         14.0.24225:4B1849F2-3D49-325F-B997-4AD0BF5B8A09 \
                         14.0.24210:729FD64C-2AE0-3E25-83A8-A93520DCDE7A
@@ -33,7 +34,7 @@ equals(DefaultVCLTLToolsVersion, 14.0) {
 } else:equals(DefaultVCLTLToolsVersion, 15.0) {
     DefaultVCLTLToolsVersion = 14.16.27023
 } else:equals(DefaultVCLTLToolsVersion, 16.0) {
-    DefaultVCLTLToolsVersion = 14.22.27905
+    DefaultVCLTLToolsVersion = 14.26.28801
 } else {
     error("VC-LTL: For Visual Studio 2015 , 2017 or 2019 only")
 }
@@ -70,7 +71,10 @@ isEmpty(VCLTLTargetUniversalCRTVersion) | !exists($$VC_LTL_Root/ucrt/$$VCLTLTarg
 LTL_CoreVersion = 4
 
 # 环境变量选项
-t = $$(SupportWinXP)
+t = $$SupportWinXP
+isEmpty(t){
+    t = $$(SupportWinXP)
+}
 equals(t, true) {
     VCLTLPlatformName = WinXP
 } else {
@@ -81,7 +85,10 @@ equals(PlatformShortName, arm) | equals(PlatformShortName, arm64) {
     VCLTLPlatformName = Vista
 }
 
-t = $$(DisableAdvancedSupport)
+t = $$DisableAdvancedSupport
+isEmpty(t){
+    t = $$(DisableAdvancedSupport)
+}
 equals(t, true) {
     LTL_Mode = Light
 } else {
@@ -114,6 +121,7 @@ message($$VC_LTL_Info)
 
 # 修改头文件及库搜索路径
 QMAKE_INCDIR += \
+	$$VC_LTL_Root/config/Mode/$$LTL_Mode \
     $$VC_LTL_Root/config/$$VCLTLPlatformName \
     $$VC_LTL_Root/VC/$$VCLTLToolsVersion/include \
     $$VC_LTL_Root/VC/$$VCLTLToolsVersion/atlmfc/include \

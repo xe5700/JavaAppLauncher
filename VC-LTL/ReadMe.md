@@ -62,7 +62,7 @@ from the pure C source code.
 ### 2.1. Supported Visual Studio Versions
 * Visual Studio 2015 (Support Clang with Microsoft CodeGen, Clang 3.7 with Microsoft CodeGen, Clang-LLVM)
 * Visual Studio 2017 (Support Clang with Microsoft CodeGen, Clang-LLVM)
-* Visual Studio 2019
+* Visual Studio 2019 (Support Clang-LLVM)
 
 ### 2.2. Supported Build Tools
 |   Build Tool   | Helper      
@@ -88,28 +88,38 @@ later, even in the environment which installed no hotfixes.
 ## 3. How to used?
 We will enter the theme, we have prepared a rich [VC-LTL Samples](https://github.com/Chuyu-Team/vc-ltl-samples) for your reference, and welcome to join our QQ group (633710173).
 
-### 3.1. Install VC-LTL
+### 3.1. Using VC-LTL in Visual Studio
+
+#### 3.1.1. Choose reference mode
+
+##### 3.1.1.1. Reference via NuGet (recommend)
+
+Right-click on the project and select "Manage NuGet Packages", then search for `VC-LTL` and choose the version that suits you, and finally click Install.
+
+![InstallByNuGet](https://raw.githubusercontent.com/wiki/Chuyu-Team/VC-LTL/en/image/InstallByNuGet.png)
+
+##### 3.1.1.2. Reference via Registry
 If you download and unzip [VC-LTL Binary](https://github.com/Chuyu-Team/VC-LTL/releases/latest) to `D:\Src\VC-LTL`, please double-click `D:\Src\VC-LTL\Install.cmd`.
 
 > The script will save the information in the registry `HKCU\Code\VC-LTL`.
 
-### 3.2. Using VC-LTL in Visual Studio
-
-#### 3.2.1. Add VC-LTL Property Sheet
 Copy `VC-LTL helper for Visual Studio.props` to your project, then open the Property Manager ( View - Property Manager ) and right-click on the Release Configuration, click on `Add Existing Property Sheet...`, and finally select `VC-LTL helper for Visual Studio.props`.
 
 ![AddShared](https://raw.githubusercontent.com/wiki/Chuyu-Team/VC-LTL/en/image/AddShared.png)
 
-#### 3.2.2. Configure Project Properties
+#### 3.1.2. Configure Project Properties
 * C/C++ - Code Generation -`Runtime Library` adjust to `Multi-threaded (/MT)`
 
 ![ConfigurationProject](https://raw.githubusercontent.com/wiki/Chuyu-Team/VC-LTL/en/image/ConfigurationProject.png)
 
-> For XP support, please use the `Windows XP toolset` in the platform toolset, or modify `VC-LTL helper for Visual Studio.props` to enable `<SupportWinXP>true</SupportWinXP>`.
+> For XP support, please Right click on the project, Properties - 初雨团队 VC-LTL - 启用 Windows XP兼容 - "Yes".
 
-### 3.3. Using VC-LTL in CMake
+### 3.2. Using VC-LTL in CMake
+If you download and unzip [VC-LTL Binary](https://github.com/Chuyu-Team/VC-LTL/releases/latest) to `D:\Src\VC-LTL`, please double-click `D:\Src\VC-LTL\Install.cmd`.
 
-#### 3.3.1. Add VC-LTL Module File
+> The script will save the information in the registry `HKCU\Code\VC-LTL`.
+
+#### 3.2.1. Add VC-LTL Module File
 
 Copy `VC-LTL helper for cmake.cmake` to your project. Then add `include("VC-LTL helper for cmake.cmake")` to `CMakeLists.txt`.
 
@@ -123,13 +133,16 @@ include("VC-LTL helper for cmake.cmake")
 add_subdirectory(src)
 ```
 
-#### 3.3.2. Modify The Configuration
+#### 3.2.2. Modify The Configuration
 
 > Make sure to use `/MT` to compile project when using VC-LTL. For XP support, please modify `VC-LTL helper for cmake.cmake` to enable `set(SupportWinXP "true")`.
 
-### 3.4. Using VC-LTL in NMake/CL
+### 3.3. Using VC-LTL in NMake/CL
 
-#### 3.4.1. Run VC-LTL Cmd Script
+#### 3.3.1. Run VC-LTL Cmd Script
+If you download and unzip [VC-LTL Binary](https://github.com/Chuyu-Team/VC-LTL/releases/latest) to `D:\Src\VC-LTL`, please double-click `D:\Src\VC-LTL\Install.cmd`.
+
+> The script will save the information in the registry `HKCU\Code\VC-LTL`.
 
 Copy `VC-LTL helper for nmake.cmd` to your project. Run `vcvars32.bat` or `vcvars64.bat` and execute this script. The script will automatically modify the `include` and `lib` environment variables.
 
@@ -140,11 +153,11 @@ call "D:\VC-LTL\VC-LTL helper for nmake.cmd"
 
 nmake /f Test.mak
 ```
-#### 3.4.2. Modify The Configuration
+#### 3.3.2. Modify The Configuration
 
 > Make sure to use `/MT` to compile project when using VC-LTL. For XP support, please modify `VC-LTL helper for nmake.cmd` to enable `set SupportWinXP=true`.
 
-### 3.5. Rebuild (Release only)
+### 3.4. Rebuild (Release only)
 Is the file size smaller? If you fail to compile, please refer to [4. FAQ](#4-faq). You can also feedback and work together to improve VC-LTL.
 
 If VC-LTL is referenced correctly, it will be output at the time of generation: `note: 进入ltl普通模式，已准备引用到VC-LTL。定义 _DISABLE_DEPRECATE_LTL_MESSAGE 可关闭信息提示。`.
@@ -189,7 +202,6 @@ If VC-LTL is referenced correctly, it will be output at the time of generation: 
 * 由于WinXP本身Bug，printf相关函数输入缓冲区最大字符数为0x3FFFFFFF（包含）。当你需要兼容XP时，请务必确认缓冲区输入长度小于0x3FFFFFFF，或者直接使用 `_CRT_STDIO_SIZE_MAX` 宏。（4.0.2.5 Advanced模式已经修正此问题）
 * 由于WinXP本身Bug，printf相关函数无法正常支持`%ll`。当你需要兼容XP时，请优先考虑使用`%I64`代替。（4.0.2.5 Advanced模式已经修正此问题）
 * 由于msvcrt本身限制，`setlocale/_create_locale`相关函数不支持UCRT的locale name，使用时必须按VC 2008规范使用，比如 `setlocale(0, "chs");` 这样调用，而不是传入 `setlocale(0, "zh-CN");`。
-* 由于FH4异常（`/d2FH4` VS2019新增功能）实现过程中使用了TLS，因此在兼容“Windows XP(2003) x64”时请务必确保不要在DllMain中使用FH4 catch，否则将导致dll直接加载失败。
 
 
 ## Excursus - Known project using VC-LTL
@@ -415,7 +427,7 @@ If VC-LTL is referenced correctly, it will be output at the time of generation: 
 * Fix Bug, solved Windows XP can't find function `operator new(size_t,int,char const *,int) and operator new[](size_t,int,char const *,int)` entry point (Thanks to 希望).
 * Fix Bug, solved missing exsup4 symbol problem under Spectre with WinXP 32 (Thanks to Too Simple).
 * Add Fea, add `delete[](void *, std::nothrow_t const &)` (Thanks to Too Simple).
-* Add Fea, add UCRT 10.17763 (Thanks to 毛利).
+* Add Fea, add UCRT 10.17763 (Thanks to MouriNaruto).
 * Add Fea, add Vistual Studio 2017 15.9 Support.
 * Add Fea, add `_IsExceptionObjectToBeDestroyed, _CreateFrameInfo, _FindAndUnlinkFrame` to Windows XP (Thanks to 夏思畅).
 
@@ -438,7 +450,7 @@ If VC-LTL is referenced correctly, it will be output at the time of generation: 
 * New Fea, `VC-LTL helper for qmake.pri` is compatible with the old version of QMake (Thanks to BigBrother).
 * New Fea, the CMake script adds vcpkg support (Thanks to BigBrother).
 * New Fea, add Vistual Studio 2019 Support.
-* New Fea, add 10.0.18362.0 UCRT support (Thanks to 毛利).
+* New Fea, add 10.0.18362.0 UCRT support (Thanks to MouriNaruto).
 * Improve, the `_ATL_XP_TARGETING` and `_USING_V110_SDK71_` macros in Vista mode are adjusted from error to warning.
 
 
@@ -456,3 +468,27 @@ If VC-LTL is referenced correctly, it will be output at the time of generation: 
 * Improve compatibility with Lenovo one-click audio and video (This Issue also exists in Microsoft's UCRT).
 * Improve compatibility with Windows 7 RTM and older systems (This Issue also exists in Microsoft's UCRT).
 * [Improve 53](https://github.com/Chuyu-Team/VC-LTL/issues/53), disable reference elimination for the STL library and avoid LLVM link failure (Thanks to hotxp, BigBrother).
+
+
+### 4.0.3.8 - Improved Support (Dec 21, 2019 14:00)
+* Improve, Improve the experience of VC-LTL in VS (Thanks to MouriNaruto).
+* Improve, Improved QT support (Thunks to 昌平517).
+* New Fea, add VS 14.23.28105 support.
+* New Fea, add VS 14.24.28314 support.
+* New Fea, add LLVM for Visual Studio 2019 support.
+* Improve, FH4 removes TLS dependencies.
+* Fix Bug, C4201 waring in corecrt_wstdio.h and mbstring.h (Thunks to BigBrother).
+* Fix Bug, XP `legacy_stdio_definitions.lib` missing vsnprintf_s function issue (Thunks to 昌平517).
+* Fix Bug，symbol conflict may occur in `legacy_stdio_definitions.lib` in light mode (Thunks to 昌平517)
+
+
+### 4.1.0.4 - Improved Support (Jul 1, 2020 16:00)
+* Improve, Enhanced _Getcvt support for C ++ 17.
+* New Fea, add msvcp60 static library mode to improve the compatibility of streamlined systems.
+* New Fea, add VS 14.25.28610, 14.26.28801 support.
+* New Fea, add UCRT 10.0.19041.0 support.
+* Fix Bug, symbol conflict may occur in `legacy_stdio_definitions.lib` in light mode (Thunks to Big吊).
+* Fix Bug, eliminate CString::Format warning (Thunks to 大胸滴).
+* Fix Bug, fix 14.26.28801 syserror_import_lib msii(Thunks to 噬元兽).
+
+> Tips: Tips: VC-LTL 4.1 and 4.0 are not compatible in STL stream ABI, please recompile static libraries!

@@ -158,7 +158,7 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_STDINT_H;HAVE_INTTYPES_H;NO_FSEEKO;_CRT_SECURE_NO_DEPRECATE;MZ_ZIP_SIGNING;HAVE_PKCRYPT;HAVE_WZAES;HAVE_ZLIB;HAVE_ZSTD;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_STDINT_H;HAVE_INTTYPES_H;NO_FSEEKO;_CRT_SECURE_NO_DEPRECATE;MZ_ZIP_SIGNING;HAVE_PKCRYPT;HAVE_WZAES;HAVE_ZLIB;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>

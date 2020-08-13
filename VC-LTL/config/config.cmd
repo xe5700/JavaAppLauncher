@@ -18,7 +18,7 @@ if "%LIB%" == "" echo 找不到环境变量LIB，请在vcvars32.bat/vcvars64.bat执行后调用
 
 if "%VisualStudioVersion%" == "14.0" set DefaultVCLTLToolsVersion=14.0.24231
 if "%VisualStudioVersion%" == "15.0" set DefaultVCLTLToolsVersion=14.16.27023
-if "%VisualStudioVersion%" == "16.0" set DefaultVCLTLToolsVersion=14.22.27905
+if "%VisualStudioVersion%" == "16.0" set DefaultVCLTLToolsVersion=14.26.28801
 
 if "%DefaultVCLTLToolsVersion%" == "" echo VC-LTL仅支持VS 2015、2017以及2019&&goto:eof
 
@@ -92,7 +92,7 @@ echo Using VC-LTL %VCLTLPlatformName% %LTL_Mode% Mode
 
 
 ::修改Include
-set INCLUDE=%VC_LTL_Root%\config\%VCLTLPlatformName%;%VC_LTL_Root%\VC\%VCLTLToolsVersion%\include;%VC_LTL_Root%\VC\%VCLTLToolsVersion%\atlmfc\include;%VC_LTL_Root%\ucrt\%VCLTLTargetUniversalCRTVersion%;%INCLUDE%
+set INCLUDE=%VC_LTL_Root%\config\Mode\%LTL_Mode%;%VC_LTL_Root%\config\%VCLTLPlatformName%;%VC_LTL_Root%\VC\%VCLTLToolsVersion%\include;%VC_LTL_Root%\VC\%VCLTLToolsVersion%\atlmfc\include;%VC_LTL_Root%\ucrt\%VCLTLTargetUniversalCRTVersion%;%INCLUDE%
 
 set LIB=%VC_LTL_Root%\lib\%PlatformShortName%\%VCLTLPlatformName%;%VC_LTL_Root%\lib\%PlatformShortName%\%VCLTLPlatformName%\%LTL_Mode%;%VC_LTL_Root%\VC\%VCLTLToolsVersion%\lib\%PlatformShortName%;%VC_LTL_Root%\VC\%VCLTLToolsVersion%\lib\%PlatformShortName%\%VCLTLPlatformName%;%VC_LTL_Root%\ucrt\%VCLTLTargetUniversalCRTVersion%\lib\%PlatformShortName%;%LIB%
 
@@ -111,6 +111,14 @@ goto:eof
 
 set VCLTLToolsVersion=%VCToolsVersion%
 if "%VCLTLToolsVersion%" NEQ "" goto ReadVC2015VersionEnd
+
+::计算机已经安装Visual Studio 2015 Update3 v14.0.24245 Visual C++ CRT Headers Package（Visual Studio 2019 中的2015平台工具集），与14.0.24231差别几乎为0，就不更新了
+set VCLTLToolsVersion=14.0.24231
+reg query HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{F485D86A-9520-3127-B879-861A9315C734} /v DisplayVersion > nul
+if %ERRORLEVEL% == 0 goto ReadVC2015VersionEnd
+
+reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{F485D86A-9520-3127-B879-861A9315C734} /v DisplayVersion > nul
+if %ERRORLEVEL% == 0 goto ReadVC2015VersionEnd
 
 ::计算机已经安装Visual Studio 2015 Update3 v14.0.24234（Visual Studio 2017 15.7中的2015平台工具集），与14.0.24231完全一致
 set VCLTLToolsVersion=14.0.24231

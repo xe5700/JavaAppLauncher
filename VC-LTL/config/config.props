@@ -19,6 +19,10 @@
   </PropertyGroup>
   
   <PropertyGroup Condition=" ('$(VCToolsVersion)'=='') And ('$(VCLTLToolsVersion)'=='') ">
+    <!--计算机已经安装Visual Studio 2015 Update3 v14.0.24245 Visual C++ CRT Headers Package（Visual Studio 2019 中的2015平台工具集），与14.0.24231差别几乎为0，就不更新了-->
+    <VCLTLToolsVersion Condition=" ('$(VCLTLToolsVersion)'=='') And ('$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{F485D86A-9520-3127-B879-861A9315C734}@DisplayVersion)'!='') ">14.0.24231</VCLTLToolsVersion>
+    <VCLTLToolsVersion Condition=" ('$(VCLTLToolsVersion)'=='') And ('$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{F485D86A-9520-3127-B879-861A9315C734}@DisplayVersion)'!='') "            >14.0.24231</VCLTLToolsVersion>
+
     <!--计算机已经安装Visual Studio 2015 Update3 v14.0.24234（Visual Studio 2017 15.7中的2015平台工具集），与14.0.24231完全一致-->
     <VCLTLToolsVersion Condition=" ('$(VCLTLToolsVersion)'=='') And ('$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{BDE574B5-6CFE-32B2-9854-C827567E9D6F}@DisplayVersion)'!='') ">14.0.24231</VCLTLToolsVersion>
     <VCLTLToolsVersion Condition=" ('$(VCLTLToolsVersion)'=='') And ('$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{BDE574B5-6CFE-32B2-9854-C827567E9D6F}@DisplayVersion)'!='') "            >14.0.24231</VCLTLToolsVersion>
@@ -56,7 +60,7 @@
 
     <!--如果找不到，那么指定为当前支持的最高版本-->
     <VCLTLFoundToolsVersion Condition=" '$(VCLTLToolsVersion)'=='' ">false</VCLTLFoundToolsVersion>
-    <VCLTLToolsVersion Condition=" '$(VCLTLToolsVersion)'==''">14.22.27905</VCLTLToolsVersion>
+    <VCLTLToolsVersion Condition=" '$(VCLTLToolsVersion)'==''">14.26.28801</VCLTLToolsVersion>
   </PropertyGroup>
   
   <PropertyGroup Condition="('$(VCLTLTargetUniversalCRTVersion)'=='')">
@@ -72,17 +76,21 @@
     <VCLTLSupportPlatformToolsetWinXP Condition="('$(VCLTLSupportPlatformToolsetWinXP)'=='') And ('$(PlatformToolset)'=='v140_xp')">true</VCLTLSupportPlatformToolsetWinXP>
     <VCLTLSupportPlatformToolsetWinXP Condition="('$(VCLTLSupportPlatformToolsetWinXP)'=='') And ('$(PlatformToolset)'=='v141_xp')">true</VCLTLSupportPlatformToolsetWinXP>
     <VCLTLSupportPlatformToolsetWinXP Condition="('$(VCLTLSupportPlatformToolsetWinXP)'=='') And ('$(PlatformToolset)'=='LLVM-vs2014_xp')">true</VCLTLSupportPlatformToolsetWinXP>
+    <VCLTLSupportPlatformToolsetWinXP Condition="('$(VCLTLSupportPlatformToolsetWinXP)'=='') And ('$(PlatformToolset)'=='LLVM_v140_xp')">true</VCLTLSupportPlatformToolsetWinXP>
     <VCLTLSupportPlatformToolsetWinXP Condition="('$(VCLTLSupportPlatformToolsetWinXP)'=='') And ('$(PlatformToolset)'=='LLVM_v141_xp')">true</VCLTLSupportPlatformToolsetWinXP>
 
     <VCLTLSupportPlatformToolsetNormal Condition="('$(VCLTLSupportPlatformToolsetNormal)'=='') And ('$(PlatformToolset)'=='v140')">true</VCLTLSupportPlatformToolsetNormal>
-    <VCLTLSupportPlatformToolsetNormal Condition="('$(VCLTLSupportPlatformToolsetNormal)'=='') And ('$(PlatformToolset)'=='v141')">true</VCLTLSupportPlatformToolsetNormal>
-    <VCLTLSupportPlatformToolsetNormal Condition="('$(VCLTLSupportPlatformToolsetNormal)'=='') And ('$(PlatformToolset)'=='LLVM-vs2014')">true</VCLTLSupportPlatformToolsetNormal>
-    <VCLTLSupportPlatformToolsetNormal Condition="('$(VCLTLSupportPlatformToolsetNormal)'=='') And ('$(PlatformToolset)'=='LLVM_v141')">true</VCLTLSupportPlatformToolsetNormal>
     <VCLTLSupportPlatformToolsetNormal Condition="('$(VCLTLSupportPlatformToolsetNormal)'=='') And ('$(PlatformToolset)'=='v140_clang_c2')">true</VCLTLSupportPlatformToolsetNormal>
     <VCLTLSupportPlatformToolsetNormal Condition="('$(VCLTLSupportPlatformToolsetNormal)'=='') And ('$(PlatformToolset)'=='v140_clang_3_7')">true</VCLTLSupportPlatformToolsetNormal>
+    <VCLTLSupportPlatformToolsetNormal Condition="('$(VCLTLSupportPlatformToolsetNormal)'=='') And ('$(PlatformToolset)'=='v141')">true</VCLTLSupportPlatformToolsetNormal>
     <VCLTLSupportPlatformToolsetNormal Condition="('$(VCLTLSupportPlatformToolsetNormal)'=='') And ('$(PlatformToolset)'=='v141_clang_c2')">true</VCLTLSupportPlatformToolsetNormal>
-
     <VCLTLSupportPlatformToolsetNormal Condition="('$(VCLTLSupportPlatformToolsetNormal)'=='') And ('$(PlatformToolset)'=='v142')">true</VCLTLSupportPlatformToolsetNormal>
+    <VCLTLSupportPlatformToolsetNormal Condition="('$(VCLTLSupportPlatformToolsetNormal)'=='') And ('$(PlatformToolset)'=='ClangCL')">true</VCLTLSupportPlatformToolsetNormal>
+    <VCLTLSupportPlatformToolsetNormal Condition="('$(VCLTLSupportPlatformToolsetNormal)'=='') And ('$(PlatformToolset)'=='LLVM-vs2014')">true</VCLTLSupportPlatformToolsetNormal>
+    <VCLTLSupportPlatformToolsetNormal Condition="('$(VCLTLSupportPlatformToolsetNormal)'=='') And ('$(PlatformToolset)'=='LLVM_v140')">true</VCLTLSupportPlatformToolsetNormal>
+    <VCLTLSupportPlatformToolsetNormal Condition="('$(VCLTLSupportPlatformToolsetNormal)'=='') And ('$(PlatformToolset)'=='LLVM_v141')">true</VCLTLSupportPlatformToolsetNormal>
+    <VCLTLSupportPlatformToolsetNormal Condition="('$(VCLTLSupportPlatformToolsetNormal)'=='') And ('$(PlatformToolset)'=='LLVM_v142')">true</VCLTLSupportPlatformToolsetNormal>
+
 
     <VCLTLSupportPlatformToolset Condition="('$(VCLTLSupportPlatformToolsetWinXP)'=='true') Or ('$(VCLTLSupportPlatformToolsetNormal)'=='true')">true</VCLTLSupportPlatformToolset>
 
@@ -99,7 +107,7 @@
     <LTL_Mode Condition=" '$(DisableAdvancedSupport)'=='true' ">Light</LTL_Mode>
     <LTL_Mode Condition=" '$(DisableAdvancedSupport)'!='true' ">Advanced</LTL_Mode>
 
-    <SupportLTL Condition="('$(DriverTargetPlatform)'=='Universal') Or ('$(VCLTLSupportPlatformToolset)' != 'true') Or ('$(VCLTLUseDebugLibraries)'=='true') Or ('$(UseOfMFC)'!='false')">false</SupportLTL>
+    <SupportLTL Condition="('$(SupportLTL)'!='false') And (('$(DriverTargetPlatform)'=='Universal') Or ('$(VCLTLSupportPlatformToolset)' != 'true') Or ('$(VCLTLUseDebugLibraries)'=='true') Or ('$(UseOfMFC)'!='false'))">false</SupportLTL>
     <SupportLTL Condition="('$(SupportLTL)'=='') And ('$(VCLTLSupportPlatform)'=='true')">true</SupportLTL>
 
     <SupportWinXP Condition=" ('$(SupportWinXP)'=='') And ('$(VCLTLSupportPlatformToolsetWinXP)'=='true')">true</SupportWinXP>
@@ -113,7 +121,7 @@
     <!--15.7新特性，检测Spectre缓解方案是否已经启用。-->
     <VCLTLLibDirMod Condition=" (('$(VCLibDirMod)'!='') And (Exists('$(VC_LTL_Root)\VC\$(VCLTLToolsVersion)\lib\$(VCLibDirMod)$(PlatformShortName)')))">$(VCLibDirMod)</VCLTLLibDirMod>
     
-    <VC_LTL_Include>$(VC_LTL_Root)\config\$(VCLTLPlatformName);$(VC_LTL_Root)\VC\$(VCLTLToolsVersion)\include;$(VC_LTL_Root)\VC\$(VCLTLToolsVersion)\atlmfc\include;$(VC_LTL_Root)\ucrt\$(VCLTLTargetUniversalCRTVersion)</VC_LTL_Include>
+    <VC_LTL_Include>$(VC_LTL_Root)\config\Mode\$(LTL_Mode);$(VC_LTL_Root)\config\$(VCLTLPlatformName);$(VC_LTL_Root)\VC\$(VCLTLToolsVersion)\include;$(VC_LTL_Root)\VC\$(VCLTLToolsVersion)\atlmfc\include;$(VC_LTL_Root)\ucrt\$(VCLTLTargetUniversalCRTVersion)</VC_LTL_Include>
     <VC_LTL_Library>$(VC_LTL_Root)\lib\$(PlatformShortName)\$(VCLTLPlatformName);$(VC_LTL_Root)\lib\$(PlatformShortName)\$(VCLTLPlatformName)\$(LTL_Mode);$(VC_LTL_Root)\VC\$(VCLTLToolsVersion)\lib\$(VCLTLLibDirMod)$(PlatformShortName);$(VC_LTL_Root)\VC\$(VCLTLToolsVersion)\lib\$(VCLTLLibDirMod)$(PlatformShortName)\$(VCLTLPlatformName);$(VC_LTL_Root)\ucrt\$(VCLTLTargetUniversalCRTVersion)\lib\$(PlatformShortName)</VC_LTL_Library>
   </PropertyGroup>
 
@@ -149,6 +157,9 @@
       <!--可选，msvcrt.lib自动会添加这些设置-->
       <MinimumRequiredVersion Condition=" '$(PlatformShortName)'=='x86' ">5.01</MinimumRequiredVersion>
       <MinimumRequiredVersion Condition=" '$(PlatformShortName)'=='x64' ">5.02</MinimumRequiredVersion>
+      <AdditionalDependencies Condition=" ('$(msvcp60_static_library)'=='true') or ('$(enable_win2k_thunks)'=='true' and '$(PlatformShortName)'=='x86') ">msvcp60_static.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <!--enable_win2k_thunks为内部功能，启用后能让VC-LTL兼容Windows 2000（需要与YY-Thunks配合使用），但是由于的内部功能不能保证长期维护！目前仅仅是为了丫丫内部工程使用。-->
+      <AdditionalDependencies Condition=" '$(enable_win2k_thunks)'=='true' and '$(PlatformShortName)'=='x86' ">msvcrt_for_win2k.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   
@@ -158,6 +169,9 @@
       <!--可选，_msvcrt.h自动会添加这些设置-->
       <PreprocessorDefinitions Condition=" '$(SupportLTL)'=='true' ">_Build_By_LTL=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies Condition=" '$(msvcp60_static_library)'=='true' ">msvcp60_static.obj;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   
   <!--UCRT模式-->
@@ -170,7 +184,10 @@
       <AdditionalDependencies>ucrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <!-- 属性页配置 -->
+    <PropertyPageSchema Include="$(MSBuildThisFileDirectory)VC-LTL-Options.xml" />
+  </ItemGroup>
 
   <Target Name="VC_LTL_PlatformPrepareForBuild_Config">
     <Message Text="
